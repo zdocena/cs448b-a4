@@ -1,0 +1,28 @@
+body {
+  margin: 10px;
+  padding: 0;
+  background-color: #40372e;
+  font-family: "Helvetica", "Arial", "Times New Roman";
+}
+
+#search-box {
+  box-shadow: 0 1px white,inset 0 1px rgba(34, 25, 25, 0.1);
+  float: left;
+  border: 1px solid;
+  width: 300px;
+  border-color: #C2C0C0 #CCCACA #D1CFCF;
+  padding: 5px;
+}
+
+#search a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #e30b70;
+  background-image: -moz-linear-gradient(top, #FDFAFB, #F9F7F7 50%, #F6F3F4 50%, #F0EDED);
+  float: left;
+  margin-top: 2px;
+  padding: 6px 10px;
+  font-size: 14px;
+  text-shadow: 1px 1px #000;
+}
