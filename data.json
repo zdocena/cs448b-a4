@@ -1,0 +1,34 @@
+[
+{
+  "topic": "college football",
+  "title": "Auburn new coach",
+  "similarity": 3,
+  "summary": "Auburn has a new coach",
+  "link": "http://www.google.com",
+  "date": 1230786000000
+},
+{
+  "topic": "college football",
+  "title": "Wisconsin coach out",
+  "similarity": 2,
+  "summary": "Wisconsin has a new coach",
+  "link": "http://www.google.com",
+  "date": 1233464400000
+},
+{
+  "topic": "college football",
+  "title": "Arkansas new coach",
+  "similarity": 3,
+  "summary": "Arkansas has a new coach",
+  "link": "http://www.google.com",
+  "date": 1241150400000
+},
+{
+  "topic": "college football",
+  "title": "another news",
+  "similarity": 1,
+  "summary": "Arkansas has a new coach",
+  "link": "http://www.google.com",
+  "date": 1283313600000
+}
+]

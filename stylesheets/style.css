@@ -5,6 +5,17 @@ body {
   font-family: "Helvetica", "Arial", "Times New Roman";
 }
 
+.clear {
+  clear: both;
+}
+
+circle {
+  stroke: #67645d;
+  stroke-width: 5px;
+  fill: #FFFFFF;
+  cursor: pointer;
+}
+
 #search-box {
   box-shadow: 0 1px white,inset 0 1px rgba(34, 25, 25, 0.1);
   float: left;
@@ -25,4 +36,7 @@ body {
   padding: 6px 10px;
   font-size: 14px;
   text-shadow: 1px 1px #000;
+}
+
+#content {
 }
