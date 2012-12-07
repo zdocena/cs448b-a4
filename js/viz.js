@@ -50,14 +50,6 @@ function draw(data) {
   var x_axis = d3.svg.axis()
     .scale(x_scale);
 
-  // Render the x-axis
-  /*
-  d3.select("svg")
-    .append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + (height - margin) + ")")
-    .call(x_axis);
-    */
 
   // Construct a line.
   var line = d3.svg.line()
@@ -95,10 +87,16 @@ function draw(data) {
     .attr("cy", function(d) {
       return y_scale(d.similarity);
     })
-    .attr("class", "circ")
     .attr("r", radius);
 
-
+$('svg circle').tipsy({
+        gravity: 'w',
+        html: true,
+        title: function() {
+          //var d = this.__data__, c = colors(d.i);
+          return "sup fool";
+        }
+      });
 
 
 
@@ -107,11 +105,53 @@ function draw(data) {
 d3.json("data.json", draw);
 
 $(document).ready(function() {
-  var $dateSlider = $("#date-slider");
+  var $dateSlider = $("#date-slider"),
+      $min = $("#min"),
+      $max = $("#max"),
+      minDate = 1,
+      maxDate = 10;
 
   $dateSlider.slider({
     range: true,
+    min: minDate,
+    max: maxDate,
+    values: [2, 8],
+    create: function(event, ui) {
+      console.log("create");
+    },
+    slide: function(event, ui) {
+      var delay = function() {
+        var handleIndex = $(ui.handle).index(),
+            label = handleIndex === 1 ? "#min" : "#max",
+            $label = $(label);
+
+        $label.html("November 3, 2012")
+          .position({
+            my: "center bottom",
+            at: "center top",
+            of: ui.handle,
+            offset: "0, -10"
+          });
+      };
+
+      setTimeout(delay, 5);
+    }
   });
+
+$("#min").html("November 3, 2012").position({
+  my: "center bottom",
+  at: "center top",
+  of: $("#date-slider a:eq(0)"),
+  offset: "0, -10"
+});
+
+$("#max").html("November 25, 2012").position({
+  my: "center bottom",
+  at: "center top",
+  of: $("#date-slider a:eq(1)"),
+  offset: "0, -10"
+});
+
 
 });
 

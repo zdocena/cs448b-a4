@@ -2,9 +2,10 @@
 <html>
   <head>
     <title>Evolution of News Articles Over Time</title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
     <link rel="stylesheet" type="text/css" href="stylesheets/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/tipsy.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 
     <script src="js/d3.js"></script>
     <script src="js/jquery.js"></script>
@@ -25,6 +26,8 @@
         });
     });
     </script>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
@@ -41,9 +44,22 @@
 
     <div id="content"></div>
 
+    <div class="clear"></div>
+
     <div id="date-slider-container">
+      <div id="min">Min</div>
+      <div id="max">Max</div>
+
       <div id="date-slider"></div>
       <div id="date-range">
+
+
+        <div id="date-range-min">
+          November 1, 2012
+        </div>
+        <div id="date-range-max">
+          December 8, 2012
+        <div>
       </div>
     </div>
   </body>

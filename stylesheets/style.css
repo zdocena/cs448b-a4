@@ -2,7 +2,10 @@ body {
   margin: 10px;
   padding: 0;
   background-color: #40372e;
-  font-family: "Helvetica", "Arial", "Times New Roman";
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+
 }
 
 .clear {
@@ -39,4 +42,46 @@ circle {
 }
 
 #content {
+}
+
+#date-slider-container {
+  width: 900px;
+  margin-left: 100px;
+}
+
+#date-range {
+  margin-top: 10px;
+  color: #CCCCCC;
+}
+
+#date-range-min {
+  float: left;
+}
+
+#date-range-max {
+  float: right;
+}
+
+#date-range div {
+  display: inline-block;
+}
+
+#min, #max {
+  width: 200px;
+  background: #000000;
+  color: #FFFFFF;
+  padding: 3px 3px 6px 3px;
+  text-align: center;
+}
+
+.ui-widget-content {
+  background: #CCCCCC;
+}
+
+.ui-widget-header {
+  background: #FFFFFF;
+}
+
+.ui-state-default {
+  background: #E30B70;
 }
