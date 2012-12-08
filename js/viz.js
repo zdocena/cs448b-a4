@@ -72,11 +72,13 @@ function draw(data) {
   content.selectAll("circle")
     .data(data)
     .enter()
-    .append("circle")
+    .append("circle");
+    /*
     .append("title")
     .text(function(d) {
       return "test";
     });
+*/
 
   // Select all of the circles and plot them
   // according to date vs. similarity.
@@ -89,14 +91,36 @@ function draw(data) {
     })
     .attr("r", radius);
 
+  // Add tooltips to all nodes.
+  $("svg circle").tipsy({
+    gravity: "w",
+    html: true,
+    offset: [15, 35],
+    opacity: 1.0,
+    title: function() {
+      return getArticleTooltip(this.__data__);
+    }
+  });
+
+function getArticleTooltip(details) {
+  var title = details.title || "Title Missing";
+  var summary = details.summary || "Summary Missing";
+  var html = "";
+  html += "<h1>" + title + "</h1>";
+  html += "<p>" + summary + "</p>";
+  return html;
+}
+
+/*
 $('svg circle').tipsy({
-        gravity: 'w',
+
         html: true,
         title: function() {
           //var d = this.__data__, c = colors(d.i);
-          return "sup fool";
+          return "<h1>Test</h1>";
         }
       });
+*/
 
 
 
