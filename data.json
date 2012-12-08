@@ -1,34 +1,78 @@
-[
 {
-  "topic": "college football",
-  "title": "Auburn new coach",
-  "similarity": 3,
-  "summary": "Auburn has a new coach",
-  "link": "http://www.google.com",
-  "date": 1230786000000
-},
-{
-  "topic": "college football",
-  "title": "Wisconsin coach out",
-  "similarity": 2,
-  "summary": "Wisconsin has a new coach",
-  "link": "http://www.google.com",
-  "date": 1233464400000
-},
-{
-  "topic": "college football",
-  "title": "Arkansas new coach",
-  "similarity": 3,
-  "summary": "Arkansas has a new coach",
-  "link": "http://www.google.com",
-  "date": 1241150400000
-},
-{
-  "topic": "college football",
-  "title": "another news",
-  "similarity": 1,
-  "summary": "Arkansas has a new coach",
-  "link": "http://www.google.com",
-  "date": 1283313600000
+  "meta": {
+    "lines": ["line0", "line1"],
+    "startDate": 1230786000000,
+    "endDate": 1283313600000,
+    "minY": 0,
+    "maxY": 3
+  },
+  "line0": [
+    {
+      "topic": "college football",
+      "title": "Auburn new coach",
+      "y": 3,
+      "summary": "Auburn has a new coach",
+      "link": "http://www.google.com",
+      "date": 1230786000000
+    },
+    {
+      "topic": "college football",
+      "title": "Wisconsin coach out",
+      "y": 2,
+      "summary": "Wisconsin has a new coach",
+      "link": "http://www.google.com",
+      "date": 1233464400000
+    },
+    {
+      "topic": "college football",
+      "title": "Arkansas new coach",
+      "y": 3,
+      "summary": "Arkansas has a new coach",
+      "link": "http://www.google.com",
+      "date": 1241150400000
+    },
+    {
+      "topic": "college football",
+      "title": "another news",
+      "y": 1,
+      "summary": "Arkansas has a new coach",
+      "link": "http://www.google.com",
+      "date": 1283313600000
+    }
+  ],
+  "line1": [
+    {
+      "topic": "college football",
+      "title": "Auburn new coach",
+      "y": 2,
+      "summary": "Auburn has a new coach",
+      "link": "http://www.google.com",
+      "date": 1240786000000
+    },
+    {
+      "topic": "college football",
+      "title": "Wisconsin coach out",
+      "y": 1,
+      "summary": "Wisconsin has a new coach",
+      "link": "http://www.google.com",
+      "date": 1253464400000
+    },
+    {
+      "topic": "college football",
+      "title": "Arkansas new coach",
+      "y": 3,
+      "summary": "Arkansas has a new coach",
+      "link": "http://www.google.com",
+      "date": 1261150400000
+    },
+    {
+      "topic": "college football",
+      "title": "another news",
+      "y": 0,
+      "summary": "Arkansas has a new coach",
+      "link": "http://www.google.com",
+      "date": 1273313600000
+    }
+  ]
 }
-]
+

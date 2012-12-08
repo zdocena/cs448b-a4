@@ -2,22 +2,23 @@
 function draw(data) {
   "use strict";
 
-
   var margin = 100,
       width = 1100,
       height = 500,
-      radius = 15;
-
-
-
+      radius = 15,
+      colors = ["#019cde", "#e50a70", "#ed8202", "#45a939"],
+      i, lineName, color;
 
   // Create a time extent from the dates.
   // D3 uses the "date" property from the data in
   // order to calculate the minimum and
   // maximum dates.
+  /*
   var x_extent = d3.extent(data, function(d) {
     return d.date;
   });
+  */
+  var x_extent = [data.meta.startDate, data.meta.endDate];
 
   // Creates a time scale using the x_extent
   // defined above
@@ -30,9 +31,12 @@ function draw(data) {
   // D3 uses the "similarity" property from
   // the data in order to calculate the minimum
   // and maximum similarities.
+  /*
   var y_extent = d3.extent(data, function(d) {
     return d.similarity;
   });
+  */
+  var y_extent = [data.meta.minY, data.meta.maxY];
 
   // Creates a similarity scale using the y_extent.
   // defined above.
@@ -46,39 +50,37 @@ function draw(data) {
     .attr("width", width)
     .attr("height", height);
 
-  // Add an x-axis representing the date.
-  var x_axis = d3.svg.axis()
-    .scale(x_scale);
-
-
   // Construct a line.
   var line = d3.svg.line()
     .x(function(d) {
       return x_scale(d.date);
     })
     .y(function(d) {
-      return y_scale(d.similarity);
+      return y_scale(d.y);
     });
 
-  // Render a line.
-  d3.select("svg")
-    .append("path")
-    .attr("fill", "none")
-    .attr("stroke", "#019cde")
-    .attr("stroke-width", "15px")
-    .attr("d", line(data));
+  // Render lines.
+  for (i = 0; i < data.meta.lines.length; i++) {
+    lineName = data.meta.lines[i];
+    color = colors[i % colors.length];
 
-  // Display nodes for every article.
-  content.selectAll("circle")
-    .data(data)
-    .enter()
-    .append("circle");
-    /*
-    .append("title")
-    .text(function(d) {
-      return "test";
-    });
-*/
+    d3.select("svg")
+      .append("path")
+      .attr("fill", "none")
+      .attr("stroke", color)
+      .attr("stroke-width", "15px")
+      .attr("d", line(data[lineName]));
+  }
+
+  // Render nodes.
+  for (i = 0; i < data.meta.lines.length; i++) {
+    lineName = data.meta.lines[i];
+
+    content.selectAll("circle." + lineName)
+      .data(data[lineName])
+      .enter()
+      .append("circle");
+  }
 
   // Select all of the circles and plot them
   // according to date vs. similarity.
@@ -87,7 +89,7 @@ function draw(data) {
       return x_scale(d.date);
     })
     .attr("cy", function(d) {
-      return y_scale(d.similarity);
+      return y_scale(d.y);
     })
     .attr("r", radius);
 
@@ -102,29 +104,29 @@ function draw(data) {
     }
   });
 
-function getArticleTooltip(details) {
-  var title = details.title || "Title Missing";
-  var summary = details.summary || "Summary Missing";
-  var html = "";
-  html += "<h1>" + title + "</h1>";
-  html += "<p>" + summary + "</p>";
-  return html;
-}
+  function renderLinesNodes(data, line, color) {
+    // Render a line.
 
-/*
-$('svg circle').tipsy({
 
-        html: true,
-        title: function() {
-          //var d = this.__data__, c = colors(d.i);
-          return "<h1>Test</h1>";
-        }
-      });
-*/
+    // Display nodes for every article.
 
+  }
+
+  function getArticleTooltip(details) {
+    var title = details.title || "Title Unknown";
+    var summary = details.summary || "Summary Unknown";
+    var momentDate = moment(new Date(details.date)) || "Date Unknown";
+    var html = "";
+    html += "<h1>" + title + "</h1>";
+    html += "<h2>" + momentDate.format("MMMM DD YYYY") + "</h2>";
+    html += "<p>" + summary + "</p>";
+    return html;
+  }
 
 
 }
+
+
 
 d3.json("data.json", draw);
 
@@ -141,7 +143,6 @@ $(document).ready(function() {
     max: maxDate,
     values: [2, 8],
     create: function(event, ui) {
-      console.log("create");
     },
     slide: function(event, ui) {
       var delay = function() {
