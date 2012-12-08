@@ -69,7 +69,7 @@ function draw(data) {
       .attr("fill", "none")
       .attr("stroke", color)
       .attr("stroke-width", "15px")
-      .attr("d", line(data[lineName]));
+      .attr("d", line(data[lineName].collection));
   }
 
   // Render nodes.
@@ -77,7 +77,7 @@ function draw(data) {
     lineName = data.meta.lines[i];
 
     content.selectAll("circle." + lineName)
-      .data(data[lineName])
+      .data(data[lineName].collection)
       .enter()
       .append("circle");
   }

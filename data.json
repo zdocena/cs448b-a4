@@ -6,7 +6,9 @@
     "minY": 0,
     "maxY": 3
   },
-  "line0": [
+  "line0": {
+    "keywords": {},
+    "collection": [
     {
       "topic": "college football",
       "title": "Auburn new coach",
@@ -39,8 +41,11 @@
       "link": "http://www.google.com",
       "date": 1283313600000
     }
-  ],
-  "line1": [
+  ]
+  },
+  "line1": {
+    "keywords": {},
+    "collection": [
     {
       "topic": "college football",
       "title": "Auburn new coach",
@@ -74,5 +79,6 @@
       "date": 1273313600000
     }
   ]
+  }
 }
 
